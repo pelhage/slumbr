@@ -28,19 +28,19 @@ m = "0" + m;
 if (i==1){    
 document.getElementById("6").innerHTML += h + ":" + m + " " + dd + "<br>  ";
 }
-if (i==2){    
+else if (i==2){    
 document.getElementById("5").innerHTML += h + ":" + m + " " + dd + "<br>  ";
 }                
-if (i==3){    
+else if (i==3){    
 document.getElementById("4").innerHTML += h + ":" + m + " " + dd + "<br>  ";
 }                
-if (i==4){    
+else if (i==4){    
 document.getElementById("3").innerHTML += h + ":" + m + " " + dd + "<br>  ";
 }
-if(i==5){
+else if(i==5){
 document.getElementById("2").innerHTML += h + ":" + m + " " + dd + "<br>  ";
 }
-if(i==6){
+else if (i==6){
 document.getElementById("1").innerHTML += h + ":" + m + " " + dd + "<br>  ";
 }    
 }
@@ -94,22 +94,22 @@ h = 12;
 if (m < 10) {
 m = "0" + m;
 }
-if (i==1){    
+else if (i==1){    
 document.getElementById("6").innerHTML += h + ":" + m + " " + dd + "<br>  ";
 }
-if (i==2){    
+else if (i==2){    
 document.getElementById("5").innerHTML += h + ":" + m + " " + dd + "<br>  ";
 }                
-if (i==3){    
+else if (i==3){    
 document.getElementById("4").innerHTML += h + ":" + m + " " + dd + "<br>  ";
 }                
-if (i==4){    
+else if (i==4){    
 document.getElementById("3").innerHTML += h + ":" + m + " " + dd + "<br>  ";
 }
-if(i==5){
+else if (i==5){
 document.getElementById("2").innerHTML += h + ":" + m + " " + dd + "<br>  ";
 }
-if(i==6){
+else if (i==6){
 document.getElementById("1").innerHTML += h + ":" + m + " " + dd + "<br>  ";
 }    
 }
