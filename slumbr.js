@@ -15,17 +15,20 @@
     
     function setAM_PM(h) {
       return (h == 0) ? 'PM' : 'AM'
-    }    
-
+    }
+    
+    function pushToDOM(d) {
+      var h = convertHour(d.getHours());
+      var m = convertMin(d.getMinutes());
+      var dd = setAM_PM(h);
+      $("#" + i).html(h + ":" + m + " " + dd);
+    }
+    
     function sleepNow() {
       $(".time-slot").html('');
       for (i = 1; i < 7; i++) {
         var d = new Date(now.getTime() + 900000 + i * cycle); //Adding a cycle for each loop
-        var h = convertHour(d.getHours());
-        var m = convertMin(d.getMinutes());
-        var dd = setAM_PM(h);
-          
-        $("#" + i).html(h + ":" + m + " " + dd);
+        pushToDOM(d);
           //document.getElementById(i).innerHTML = h + ":" + m + " " + dd;
       }
     }
@@ -36,9 +39,6 @@
         var hourInput = parseInt($('#hourInput').val(), 10)
         var minInput = parseInt($('#minInput').val(), 10);
       
-      //MAKE SURE IT IS EMPTY EACH TIME YOU ARE PRESSING CALC
-        $(".time-slot").html('');
-
       //CHECKING TO MAKE SURE INPUTS ARE CORRECT
         if ((isNaN(hourInput || minInput)) || (hourInput > 12 || minInput < 0 || minInput > 59 || hourInput === "")) {
           document.getElementById("xxx").innerHTML = "Please use the correct HH:MM format"
@@ -54,24 +54,14 @@
         if ($('#myonoffswitch2').is(':checked')) {
             for (i = 6; i > 0; i--) {
                 var d = new Date(wakeTime.getTime() - i * cycle);
-                var h = convertHour(d.getHours());
-                var m = convertMin(d.getMinutes());
-                var dd = setAM_PM(h);
-
-                $("#" + i).html(h + ":" + m + " " + dd);
-                //document.getElementById(i).innerHTML = h + ":" + m + " " + dd;
+                pushToDOM(d);
             }
         }
         //IF SET TO SLEEP, THEN DO THIS
         if (!$('#myonoffswitch2').is(':checked')) {
             for (i = 1; i < 7; i++) {
                 var d = new Date(wakeTime.getTime() + i * cycle);
-                var h = convertHour(d.getHours());
-                var m = convertMin(d.getMinutes());
-                var dd = setAM_PM(h);
-
-                $("#" + i).html(h + ":" + m + " " + dd);
-                //document.getElementById(i).innerHTML = h + ":" + m + " " + dd;
+                pushToDOM(d);
             }
         }
     }
