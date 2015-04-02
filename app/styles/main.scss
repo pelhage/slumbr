@@ -10,65 +10,20 @@
 	opacity: 0.5;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
-	html {
-		max-width:100%;
-		max-height:100%;
-	}
-	
-	body {
-		color:#fff;
-	}
-	
-	.disclaimer {
-		font-size:18px!important;
-	}
-	.calcbtn {
-		width:90%!important;
-	}
-	.high {
-		font-size:35px!important;
-	}
-	.med {
-		font-size:25px!important;
-	}
-	.low {
-		font-size:20px!important;
-	}
-	.sleeporwake {
-		width:100%!important;
-	}
-	#sleepnow {
-		margin:0 auto;
-		max-width:100%;
-		padding:0;
-	}
-	body {
-		max-width:640px;
-		margin:0!important;
-	}
-	.about {
-		display: none;
-	}
-	.header {
-		height:45px;
-		margin:0!important;
-		background-image:url(http://css-tricks.com/wp-content/csstricks-uploads/transpBlack10.png);
-		padding-top:0;
-	}
-	.tagline {
-		font-family:'Coming Soon',cursive;
-		display:none;
-	}
-	#contain {
-		max-width: 100%;
-	}
+
+
+hr {
+    width:100%;
+    opacity:.4;
+    color:#fff;
+    margin: 40px 0;
 }
 
 .calcbtn {
     margin: 20px auto;
 	width: 60%;
 	p {
+        margin: 20px 0 0 0;
     	font-size: 16px;
     	opacity: 0.6;
 	}
@@ -378,11 +333,6 @@ body {
 a {
 	color:#19BAB1;
 }
-hr {
-	width:100%;
-	opacity:.4;
-	color:#fff;
-}
 
 .social {
 	position: fixed;
@@ -399,3 +349,65 @@ hr {
     margin-left: 15px;
     margin-top: 5px;
 }
+
+
+
+@media screen and (min-device-width : 320px) and (max-device-width : 568px) {
+    html {
+        max-width:100%;
+    }
+
+    /*************
+     Calculator Page
+    **************/
+    h1 {
+        font-size: 30px;
+    }
+    .description {
+        margin-bottom: 40px;
+    }
+    .calcbtn {
+        width: 90%!important;
+    }
+
+    /*************
+     Results Page
+    **************/
+
+    .disclaimer {
+        font-size:18px!important;
+    }
+    .high {
+        font-size:35px!important;
+    }
+    .med {
+        font-size:25px!important;
+    }
+    .low {
+        font-size:20px!important;
+    }
+    .sleeporwake {
+        width:100%!important;
+    }
+    body {
+        max-width:640px;
+        margin:0!important;
+    }
+    .about {
+        display: none;
+    }
+    .header {
+        height:45px;
+        margin:0!important;
+        background-image:url(http://css-tricks.com/wp-content/csstricks-uploads/transpBlack10.png);
+        padding-top:0;
+    }
+    .tagline {
+        font-family:'Coming Soon',cursive;
+        display:none;
+    }
+    #contain {
+        max-width: 100%;
+    }
+}
+
