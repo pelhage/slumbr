@@ -120,32 +120,32 @@
 
 <script type="text/javascript">
 
-$('#go').click(function(){
-  if( $('#hourInput').val() == 0 || $('#hourInput').val() > 12 || $('#minInput').val() < 0 || $('#minInput').val() > 59 || isNaN($('#minInput').val()) || isNaN($('#hourInput').val())        ){
-  $('.alert-popup').fadeIn('fast');
-}
+var hourInput = $('#hourInput').val();
+var minInput = $('#minInput').val();
 
+$('#go').click(function() {
+  if ( hourInput <= 0 || hourInput > 12 || minInput < 0 || minInput > 59 || isNaN(minInput) || isNaN(hourInput) ){
+    $('#alert').fadeIn('fast');
+  } 
   else {
     $('#contain').fadeOut('slow', function(){
       $('.show').fadeIn('fast');
-      $('.alert').hide();
+      $('#alert').hide();
     });
   }
 });
 
-$('#sleepnow').click(function(){
-  $('#contain').fadeOut('slow', function(){
+$('#sleepnow').click(function() {
+  $('#contain').fadeOut('slow', function() {
     $('.show').fadeIn('fast');
   });
 });
 
-
-$('#back').click(function(){
+$('#back').click(function() {
   $('.show').fadeOut('slow', function(){
     $('#contain').fadeIn('fast');
   });
 });
-
 
 </script> 
 

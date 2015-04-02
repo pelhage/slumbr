@@ -43,9 +43,9 @@ function wakeUp() {
   var hourInput = parseInt($('#hourInput').val(), 10)
   var minInput = parseInt($('#minInput').val(), 10);
 
-  // Validate inputs
-  if ((isNaN(hourInput || minInput)) || (hourInput > 12 || minInput < 0 || minInput > 59 || hourInput === "")) {
-    document.getElementById("xxx").innerHTML = "Please use the correct HH:MM format"
+  // Validate inputs, break out of function if invalid
+  if ((isNaN(hourInput || minInput)) || (hourInput > 12 || minInput < 0 || minInput > 59 || hourInput === "" || hourInput <= 0)) {
+    return false;
   }
 
   if ($('#myonoffswitch').is(':checked') && hourInput == 12) {
