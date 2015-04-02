@@ -44,25 +44,7 @@
         <div class="header">
             <h1><a href="/">slumbr.in <span><img src="http://i.imgur.com/z3wXiY6.png"></span></a></h1>
         </div>
-
-
-
-
-<!--
-  switch--sleep-wake
-  switch--am-pm
-  
-  switch
-  switch__label--sleep-wake
-  switch__button--sleep-wake
-  switch__checkbox--sleep-wake
-  
-  switch
-  switch__label--sleep-wake
-  switch__button--sleep-wake
-  switch__checkbox--sleep-wake
-
- -->        
+      
         <div class="sleeporwake" id="contain">
             <h1>If you can sleep better, you should.</h1>
             <p class="description">slumbr calculates the best times to sleep and wake up.</p>
@@ -139,30 +121,29 @@
 <script type="text/javascript">
 
 $('#go').click(function(){
-if(       $('#hourInput').val() == 0 || $('#hourInput').val() > 12 || $('#minInput').val() < 0 || $('#minInput').val() > 59 || isNaN($('#minInput').val()) || isNaN($('#hourInput').val())        ){
-$('.alert').fadeIn('fast');
+  if( $('#hourInput').val() == 0 || $('#hourInput').val() > 12 || $('#minInput').val() < 0 || $('#minInput').val() > 59 || isNaN($('#minInput').val()) || isNaN($('#hourInput').val())        ){
+  $('.alert-popup').fadeIn('fast');
 }
 
-else {
-$('#contain').fadeOut('slow', function(){
-$('.show').fadeIn('fast');
-$('.alert').hide();
-});
-}
+  else {
+    $('#contain').fadeOut('slow', function(){
+      $('.show').fadeIn('fast');
+      $('.alert').hide();
+    });
+  }
 });
 
 $('#sleepnow').click(function(){
-$('#contain').fadeOut('slow', function(){
-$('.show').fadeIn('fast');
-});
+  $('#contain').fadeOut('slow', function(){
+    $('.show').fadeIn('fast');
+  });
 });
 
 
 $('#back').click(function(){
-
-$('.show').fadeOut('slow', function(){
-$('#contain').fadeIn('fast');
-});
+  $('.show').fadeOut('slow', function(){
+    $('#contain').fadeIn('fast');
+  });
 });
 
 
