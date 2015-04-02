@@ -204,10 +204,10 @@ h1 {
 }
 body {
 	color: #fff;
-	background-image: url(/images/stardust.png), -webkit-linear-gradient(#0E2958,#294363);
-	background-image: url(/images/stardust.png), -o-linear-gradient(#0E2958,#294363);
-	background-image: url(/images/stardust.png), -moz-linear-gradient(#0E2958,#294363);
-	background-image: url(/images/stardust.png), linear-gradient(#0E2958,#294363);
+	background-image: url(/images/stardust.png), -webkit-linear-gradient(#0B1F42, #0E2958,#294363);
+	background-image: url(/images/stardust.png), -o-linear-gradient(#0B1F42, #0E2958,#294363);
+	background-image: url(/images/stardust.png), -moz-linear-gradient(#0B1F42, #0E2958,#294363);
+	background-image: url(/images/stardust.png), linear-gradient(#0B1F42, #0E2958,#294363);
 	background-attachment: fixed;
 }
 /********
@@ -269,10 +269,10 @@ body {
 	color: #fff;
 	font-family:Helvetica,Trebuchet,Arial,sans-serif;
 	font-weight:400;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-	box-sizing:border-box;
-	border-radius:46px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 46px;
 }
 /********
 	6
