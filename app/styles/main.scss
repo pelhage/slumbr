@@ -1,24 +1,13 @@
 * {
-	font-size:35px;
-	font-family:helvetica;
+    font-size: 35px;
+    font-family: helvetica, verdana, arial, sans-serif;
 }
 
-::-webkit-input-placeholder {
-	opacity:.5;
-}
-
-:-moz-placeholder {
-/* Firefox 18- */
-	opacity:.5;
-}
-
-::-moz-placeholder {
-/* Firefox 19+ */
-	opacity:.5;
-}
-
+::-webkit-input-placeholder,
+:-moz-placeholder,
+::-moz-placeholder,
 :-ms-input-placeholder {
-	opacity:.5;
+	opacity: 0.5;
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
@@ -29,8 +18,6 @@
 	
 	body {
 		color:#fff;
-	/*    background-image: none !important;
-	    background-color: #70A5D6; */
 	}
 	
 	.disclaimer {
@@ -217,10 +204,10 @@ h1 {
 }
 body {
 	color: #fff;
-	background: -webkit-linear-gradient(#0E2958,#294363);
-	background: -o-linear-gradient(#0E2958,#294363);
-	background: -moz-linear-gradient(#0E2958,#294363);
-	background: linear-gradient(#0E2958,#294363);
+	background-image: url(/images/stardust.png), -webkit-linear-gradient(#0E2958,#294363);
+	background-image: url(/images/stardust.png), -o-linear-gradient(#0E2958,#294363);
+	background-image: url(/images/stardust.png), -moz-linear-gradient(#0E2958,#294363);
+	background-image: url(/images/stardust.png), linear-gradient(#0E2958,#294363);
 	background-attachment: fixed;
 }
 /********
