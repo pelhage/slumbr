@@ -36,54 +36,43 @@
 	.disclaimer {
 		font-size:18px!important;
 	}
-	
 	.calcbtn {
 		width:90%!important;
 	}
-	
 	.high {
 		font-size:35px!important;
 	}
-	
 	.med {
 		font-size:25px!important;
 	}
-	
 	.low {
 		font-size:20px!important;
 	}
-	
 	.sleeporwake {
 		width:100%!important;
 	}
-	
 	#sleepnow {
 		margin:0 auto;
 		max-width:100%;
 		padding:0;
 	}
-	
 	body {
 		max-width:640px;
 		margin:0!important;
 	}
-	
 	.about {
-		display:none;
+		display: none;
 	}
-	
 	.header {
 		height:45px;
 		margin:0!important;
 		background-image:url(http://css-tricks.com/wp-content/csstricks-uploads/transpBlack10.png);
 		padding-top:0;
 	}
-	
 	.tagline {
 		font-family:'Coming Soon',cursive;
 		display:none;
 	}
-	
 	#contain {
 		max-width:100%;
 	}
@@ -93,18 +82,15 @@
     margin:20px auto;
 	width:60%;
 }
-
 .calcbtn p {
     font-size:16px;opacity:0.6;
 }
-
 .header {
     margin-top:15px;margin-left:10px;width:150px
 }
 .show {
 	display:none;
 }
-
 .low {
 	color:#fff;
 /*    color:#9ad3eb;*/
@@ -112,25 +98,21 @@
 	font-weight:200;
 	opacity:.45;
 }
-
 .med {
 	color:#fff;
 	font-size:40px;
 	font-weight:400;
 	opacity:.8;
 }
-
 .high {
 	color:#fff;
 	font-weight:800;
 	font-size:55px;
 }
-
 h1 {
 	font-weight:100;
 	font-size:26px;
 }
-
 .sleeporwake h1 {
 	text-align:center;
 	font-weight:100;
@@ -138,7 +120,6 @@ h1 {
 	margin:0 0 10px;
 	opacity:.6;
 }
-
 .description {
 	text-align:center;
 	margin-top:0;
@@ -148,31 +129,25 @@ h1 {
 	font-weight:100;
 	opacity:.6;
 }
-
 #contain {
 	max-width:800px;text-align:center;margin: 0 auto
 }
-
 .social {
 	position:fixed;
 	bottom:0;
 	float:left;
 }
-
 .twitter-share-button {
 	margin-bottom:10px;
 	float:left;
 	font-size:12px;
 }
-
 #zzz,#xxx {
 	font-size:27px;
 }
-
 .info p, a {
     font-size:16px
 }
-
 body {
 	color:#fff;
 /* background-image: url('http://i.imgur.com/kgemBFu.jpg');
@@ -187,7 +162,6 @@ body {
 	background:linear-gradient(#0E2958,#294363);
 	background-attachment: fixed;
 }
-
 .onoffswitch {
 	position:relative;
 	width:125px;
@@ -197,11 +171,9 @@ body {
 	-ms-user-select:none;
 	display:inline-block;text-align:left
 }
-
 .onoffswitch-checkbox {
 	display:none;
 }
-
 .onoffswitch-label {
 	display:block;
 	overflow:hidden;
@@ -209,7 +181,6 @@ body {
 	border:none;
 	border-radius:46px;
 }
-
 .onoffswitch-inner {
 	width:200%;
 	margin-left:-100%;
@@ -218,7 +189,6 @@ body {
 	-o-transition:margin .3s ease-in 0;
 	transition:margin .3s ease-in 0;
 }
-
 .onoffswitch-inner:before,.onoffswitch-inner:after {
 	float:left;
 	width:50%;
@@ -226,7 +196,7 @@ body {
 	padding:0;
 	line-height:46px;
 	font-size:35px;
-	color:#fff;
+	color: #fff;
 	font-family:Helvetica,Trebuchet,Arial,sans-serif;
 	font-weight:400;
 	-moz-box-sizing:border-box;
@@ -234,7 +204,6 @@ body {
 	box-sizing:border-box;
 	border-radius:46px;
 }
-
 .onoffswitch-inner:before {
 	content:"AM";
 	padding-left:10px;
@@ -242,7 +211,6 @@ body {
 	color:#FFF;
 	border-radius:46px 0 0 46px;
 }
-
 .onoffswitch-inner:after {
 	content:"PM";
 	padding-right:10px;
@@ -251,7 +219,6 @@ body {
 	text-align:right;
 	border-radius:0 46px 46px 0;
 }
-
 .onoffswitch-switch {
 	width:46px;
 	margin:0;
@@ -272,15 +239,12 @@ body {
 	background-image:linear-gradient(center top,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 80%);
 	box-shadow:0 1px 1px #fff inset;
 }
-
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
 	margin-left:0;
 }
-
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
 	right:0;
 }
-
 .onoffswitch2 {
 	position:relative;
 	width:200px;
@@ -290,11 +254,9 @@ body {
 	-ms-user-select:none;
 	display:inline-block;text-align:left
 }
-
 .onoffswitch2-checkbox {
 	display:none;
 }
-
 .onoffswitch2-label {
 	display:block;
 	overflow:hidden;
@@ -302,7 +264,6 @@ body {
 	border:none;
 	border-radius:46px;
 }
-
 .onoffswitch2-inner {
 	width:200%;
 	margin-left:-100%;
@@ -311,7 +272,6 @@ body {
 	-o-transition:margin .3s ease-in 0;
 	transition:margin .3s ease-in 0;
 }
-
 .onoffswitch2-inner:before,.onoffswitch2-inner:after {
 	float:left;
 	width:50%;
@@ -327,7 +287,6 @@ body {
 	box-sizing:border-box;
 	border-radius:46px;
 }
-
 .onoffswitch2-inner:before {
 	content:"wake up";
 	padding-left:10px;
@@ -335,7 +294,6 @@ body {
 	color:#FFF;
 	border-radius:46px 0 0 46px;
 }
-
 .onoffswitch2-inner:after {
 	content:"sleep";
 	padding-right:35px;
@@ -344,7 +302,6 @@ body {
 	text-align:right;
 	border-radius:0 46px 46px 0;
 }
-
 .onoffswitch2-switch {
 	width:46px;
 	margin:0;
@@ -365,15 +322,12 @@ body {
 	background-image:linear-gradient(center top,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0) 80%);
 	box-shadow:0 1px 1px #fff inset;
 }
-
 .onoffswitch2-checkbox:checked + .onoffswitch2-label .onoffswitch2-inner {
 	margin-left:0;
 }
-
 .onoffswitch2-checkbox:checked + .onoffswitch2-label .onoffswitch2-switch {
 	right:0;
 }
-
 #hourInput,#minInput {
 	height:46px;
 	font-size:35px;
@@ -384,15 +338,13 @@ body {
 	background-color:rgba(0,0,0,0.20);
 	color:#fff;
 }
-
 #hourInput:focus,#minInput:focus {
 	outline:none;
 	border-color:#206AAD;
 	box-shadow:0 0 10px #206AAD;
 }
-
 #sleepnow {
-margin:20px auto;
+	margin:20px auto;
 	width:100%;
 	color:#fff;
 	font-size:30px;
@@ -410,7 +362,6 @@ margin:20px auto;
 	background-image:linear-gradient(to bottom,#8e7cc3,#7f6bbb);
 	cursor:pointer;
 }
-
 #go {
 	color:#fff;
 	font-size:30px;
@@ -428,22 +379,18 @@ margin:20px auto;
 	background-image:linear-gradient(to bottom,#206AAD,#2477c3);
 	cursor:pointer;
 }
-
 #go:hover {
 	background:#2477c3;
 }
-
 #sleepnow:hover {
 	background:#8e7cc3;
 }
-
 .alert,#alert {
 	display:none;
 	font-size:19px;
 	clear:both;
 	color:#904D4B;
 }
-
 p {
 	display:block;
 	-webkit-margin-before:.25em;
@@ -451,11 +398,9 @@ p {
 	-webkit-margin-start:0;
 	-webkit-margin-end:0;
 }
-
 a {
 	color:#19BAB1;
 }
-
 hr {
 	width:100%;
 	opacity:.4;
@@ -475,32 +420,26 @@ hr {
 	opacity:0;
 	filter:alpha(opacity=0);
 }
-
 .tooltip.in {
 	opacity:.9;
 	filter:alpha(opacity=90);
 }
-
 .tooltip.top {
 	margin-top:-3px;
 	padding:5px 0;
 }
-
 .tooltip.right {
 	margin-left:3px;
 	padding:0 5px;
 }
-
 .tooltip.bottom {
 	margin-top:3px;
 	padding:5px 0;
 }
-
 .tooltip.left {
 	margin-left:-3px;
 	padding:0 5px;
 }
-
 .tooltip-inner {
 	max-width:200px;
 	padding:3px 8px;
@@ -510,7 +449,6 @@ hr {
 	background-color:#000;
 	border-radius:4px;
 }
-
 .tooltip-arrow {
 	position:absolute;
 	width:0;
@@ -518,7 +456,6 @@ hr {
 	border-color:transparent;
 	border-style:solid;
 }
-
 .tooltip.top .tooltip-arrow {
 	bottom:0;
 	left:50%;
@@ -526,7 +463,6 @@ hr {
 	border-width:5px 5px 0;
 	border-top-color:#000;
 }
-
 .tooltip.top-left .tooltip-arrow {
 	bottom:0;
 	left:5px;
@@ -540,7 +476,6 @@ hr {
 	border-width:5px 5px 0;
 	border-top-color:#000;
 }
-
 .tooltip.right .tooltip-arrow {
 	top:50%;
 	left:0;
@@ -548,7 +483,6 @@ hr {
 	border-width:5px 5px 5px 0;
 	border-right-color:#000;
 }
-
 .tooltip.left .tooltip-arrow {
 	top:50%;
 	right:0;
@@ -556,7 +490,6 @@ hr {
 	border-width:5px 0 5px 5px;
 	border-left-color:#000;
 }
-
 .tooltip.bottom .tooltip-arrow {
 	top:0;
 	left:50%;
@@ -564,24 +497,19 @@ hr {
 	border-width:0 5px 5px;
 	border-bottom-color:#000;
 }
-
 .tooltip.bottom-left .tooltip-arrow {
 	top:0;
 	left:5px;
 	border-width:0 5px 5px;
 	border-bottom-color:#000;
 }
-
 .tooltip.bottom-right .tooltip-arrow {
 	top:0;
 	right:5px;
 	border-width:0 5px 5px;
 	border-bottom-color:#000;
 }
-
-
 .fb-like {
     display:inline-block;margin-left:15px;margin-top:5px;
 }
-
 .disclaimer {font-size:25px;}
