@@ -3,12 +3,6 @@
     font-family: helvetica, verdana, arial, sans-serif;
 }
 
-::-webkit-input-placeholder,
-:-moz-placeholder,
-::-moz-placeholder,
-:-ms-input-placeholder {
-    opacity: 0.5;
-}
 /********************************
 
 
@@ -24,6 +18,7 @@ h1 {
     margin: 0 0 10px;
     opacity: 0.6;
 }
+
 a {
     color: #19BAB1;
 }
@@ -151,8 +146,6 @@ hr {
     display: inline-block;
 }
 
-
-
 .description {
     text-align: center;
     margin-top: 0;
@@ -198,10 +191,16 @@ body {
     color: #fff;
 }
 
-#hourInput:focus, #minInput:focus {
+#hourInput:focus,
+#minInput:focus {
     outline: none;
     border-color: #206AAD;
     box-shadow: 0 0 10px #206AAD;
+}
+
+::-webkit-input-placeholder, :-moz-placeholder,
+::-moz-placeholder, :-ms-input-placeholder {
+    opacity: 0.5;
 }
 
 .alert-popup {
@@ -214,18 +213,6 @@ body {
     clear: both;
     color: #904D4B;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /********************************
 
@@ -247,18 +234,22 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
 }
+
 .switch.am-pm {
     width: 125px;
 }
+
 .switch.sleep-wake {
     width: 200px;
 }
+
 /********************************
     Hide the checkbox
 *********************************/
 .switch__checkbox {
     display: none;
 }
+
 /********************************
     Container of the switch
 *********************************/
@@ -269,6 +260,7 @@ body {
     border: none;
     border-radius: 46px;
 }
+
 /********************************
     Colored toggle part with text
 *********************************/
@@ -280,6 +272,7 @@ body {
     -o-transition: margin .3s ease-in 0;
     transition: margin .3s ease-in 0;
 }
+
 /********************************
     Inner part that slides
 *********************************/
@@ -299,6 +292,7 @@ body {
     box-sizing: border-box;
     border-radius: 46px;
 }
+
 /********************************
     Formatting each toggle half 
 *********************************/
@@ -307,25 +301,31 @@ body {
     background-color: #206AAD;
     border-radius: 46px 0 0 46px;
 }
+
 .switch__inner:after {
     background-color: #294155;
     text-align: right;
     border-radius: 0 46px 46px 0;
 }
+
 .switch__inner.am-pm:before {
     content: "AM";
 }
+
 .switch__inner.am-pm:after {
     content: "PM";
     padding-right: 10px;
 }
+
 .switch__inner.sleep-wake:before {
     content: "wake up";
 }
+
 .switch__inner.sleep-wake:after {
     content: "sleep";
     padding-right: 35px;
 }
+
 /********************************
     The Rounded Toggle Button
 *********************************/
@@ -348,33 +348,25 @@ body {
     background-image: linear-gradient(center top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 80%);
     box-shadow: 0 1px 1px #fff inset;
 }
+
 .switch__switch.am-pm {
     right: 79px;
 }
+
 .switch__switch.sleep-wake {
     right: 154px;
 }
+
 /********************************
     MISC Formatting
 *********************************/
 .switch__checkbox:checked + .switch__label .switch__inner {
     margin-left: 0;
 }
+
 .switch__checkbox:checked + .switch__label .switch__switch {
     right: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /********************************
 
@@ -400,19 +392,7 @@ footer {
     vertical-align: middle;
     margin-left: 15px;
     padding-bottom: 20px;
-
 }
-
-
-
-
-
-
-
-
-
-
-
 
 /********************************
 
@@ -467,10 +447,6 @@ footer {
         height: 45px;
         margin: 0 !important;
         padding-top: 0;
-    }
-    .tagline {
-        font-family: 'Coming Soon',cursive;
-        display: none;
     }
     #contain {
         max-width: 100%;

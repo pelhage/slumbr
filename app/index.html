@@ -2,9 +2,10 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title>slumbr</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <title>Slumbr.in Sleep Cycle Calculator</title>
+    <meta name="description" content="Slumbr.in is a sleep cycle calculator that finds the best times to go to sleep or wake up.">
+    <meta name="keywords" content="Sleep cycle calculator">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
@@ -14,6 +15,15 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-52478120-1', 'auto');
+            ga('send', 'pageview');
+    </script>
   </head>
   <body>
     <!--[if lt IE 10]>
@@ -94,11 +104,11 @@
             <div class="show">
                 <p class="disclaimer">From most to least number of sleep cycles, here are your best times:</p>
                 <div class="results">
-                    <div class="high time-slot" id="6" title="6th sleep cycle, 9 hours of sleep"></div>
-                    <div class="high time-slot" id="5" title="5th sleep cycle, 7.5 hours of sleep"></div>
-                    <div class="med time-slot" id="4" title="4th sleep cycle, 6 hours of sleep"></div>
-                    <div class="low time-slot" id="3" title="3rd sleep cycle, 4.5 hours of sleep"></div>
-                    <div class="low time-slot" id="2" title="2nd sleep cycle, 3 hours of sleep"></div>
+                    <div class="high time-slot" id="6"></div>
+                    <div class="high time-slot" id="5"></div>
+                    <div class="med time-slot" id="4"></div>
+                    <div class="low time-slot" id="3"></div>
+                    <div class="low time-slot" id="2"></div>
                 </div>
                 <div class="info">
                     <p>Slumbr chooses times when you are most likely to wake up at the end of a sleep cycle, thus feeling refreshed. Each cycle is approximately 90 minutes long, and you should aim to get about 5 or 6 cycles. <br> <a href="http://www.helpguide.org/life/sleeping.htm" target="_blank"> Read about how sleep cycles work.</a>
@@ -109,61 +119,43 @@
 
         
         <footer>
-            <a class="twitter-share-button" href="https://twitter.com/share" data-text="Slumbr.in counts sleep cycles to gives you the best times to sleep or wake up!" data-related="jasoncosta" data-lang="en" data-size="large" data-count="none">Tweet</a>
+            <a class="twitter-share-button" href="https://twitter.com/share" data-text="Slumbr.in counts sleep cycles to give you the best times to sleep or wake up!" data-related="jasoncosta" data-lang="en" data-size="large" data-count="none">Tweet</a>
             
             <div class="fb-like" data-href="http://patrickelhage.com/apps/Test.html" data-width="76" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
         </footer>
 
 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script>
+        var hourInput = $('#hourInput').val();
+        var minInput = $('#minInput').val();
 
-<script type="text/javascript">
+        $('#go').click(function() {
+          if ( hourInput <= 0 || hourInput > 12 || minInput < 0 || minInput > 59 || isNaN(minInput) || isNaN(hourInput) ){
+            $('#alert').fadeIn('fast');
+          } 
+          else {
+            $('#contain').fadeOut('slow', function(){
+              $('.show').fadeIn('fast');
+              $('#alert').hide();
+            });
+          }
+        });
 
-var hourInput = $('#hourInput').val();
-var minInput = $('#minInput').val();
+        $('#sleepnow').click(function() {
+          $('#contain').fadeOut('slow', function() {
+            $('.show').fadeIn('fast');
+          });
+        });
 
-$('#go').click(function() {
-  if ( hourInput <= 0 || hourInput > 12 || minInput < 0 || minInput > 59 || isNaN(minInput) || isNaN(hourInput) ){
-    $('#alert').fadeIn('fast');
-  } 
-  else {
-    $('#contain').fadeOut('slow', function(){
-      $('.show').fadeIn('fast');
-      $('#alert').hide();
-    });
-  }
-});
+        $('#back').click(function() {
+          $('.show').fadeOut('slow', function(){
+            $('#contain').fadeIn('fast');
+          });
+        });
+      </script> 
 
-$('#sleepnow').click(function() {
-  $('#contain').fadeOut('slow', function() {
-    $('.show').fadeIn('fast');
-  });
-});
-
-$('#back').click(function() {
-  $('.show').fadeOut('slow', function(){
-    $('#contain').fadeIn('fast');
-  });
-});
-
-</script> 
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
