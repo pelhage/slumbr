@@ -383,24 +383,25 @@ body {
 
 
 *********************************/
-.social {
-    position: fixed;
+footer {
+    position: relative;
     bottom: 0;
-    float: left;
+    margin-top: 20px;
+    overflow: scroll;
 }
 
 .twitter-share-button {
     display: inline-block;
-    margin-bottom: 10px;
     font-size: 12px;
 }
 
 .fb-like {
     display: inline-block;
+    vertical-align: middle;
     margin-left: 15px;
-    margin-top: 5px;
-}
+    padding-bottom: 20px;
 
+}
 
 
 
