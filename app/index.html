@@ -128,11 +128,11 @@
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
       <script>
-        var hourInput = $('#hourInput').val();
-        var minInput = $('#minInput').val();
 
         $('#go').click(function() {
-          if ( hourInput <= 0 || hourInput > 12 || minInput < 0 || minInput > 59 || isNaN(minInput) || isNaN(hourInput) ){
+          var hourInput = parseInt($('#hourInput').val());
+          var minInput = parseInt($('#minInput').val());
+          if ( hourInput <= 0 || hourInput > 12 || minInput < 0 || minInput > 59 || isNaN(minInput) || isNaN(hourInput) ) {
             $('#alert').fadeIn('fast');
           } 
           else {
