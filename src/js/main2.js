@@ -3,7 +3,7 @@
   window.Slumbr = (function() {
 
     // This is the length of a sleep cycle, expressed in milliseconds
-    var cycle = 90 * 60000;
+    //var cycle = 90 * 60000;
 
 
     var Clock = {
@@ -82,18 +82,20 @@
           Clock.listOfTimes = this.calcSleepTimes();
         }
       },
-      calcWakeTimes: function() {
+      calcWakeTimes: function(dateTime) {
         var timesList = [];
+        var dateTime = dateTime || Clock.dateTime.getTime();
         for (var i = 6; i > 0; i--) {
-          var d = new Date(Clock.dateTime.getTime() - i * cycle);
+          var d = new Date(dateTime - i * 90 * 60000);
           timesList.push(d);
         }
         return timesList;
       },
-      calcSleepTimes: function() {
+      calcSleepTimes: function(dateTime) {
+        var dateTime = dateTime || Clock.dateTime.getTime();
         var timesList = [];
         for (var j = 1; j < 7; j++) {
-          var d = new Date(Clock.dateTime.getTime() + j * cycle);
+          var d = new Date(dateTime + j * 90 * 60000);
           timesList.push(d);
         }
         return timesList;
@@ -136,7 +138,9 @@
       convertHour: Clock.convertHour,
       convertMin: Clock.convertMin,
       setAM_PM: Clock.setAM_PM,
-      validInputs: Clock.validInputs
+      validInputs: Clock.validInputs,
+      calcWakeTimes: Controller.calcWakeTimes,
+      calcSleepTimes: Controller.calcSleepTimes
     };
   })();
 
