@@ -7,7 +7,7 @@
     <meta name="keywords" content="Sleep cycle calculator">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="css/main.css">
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -45,7 +45,7 @@
         </script>
 
         <div class="header">
-            <h1><a href="/">slumbr.in <span><img src="images/logo.png"></span></a></h1>
+            <h1><a href="/">slumbr.in <span><img src="img/logo.png"></span></a></h1>
         </div>
       
         <div class="sleeporwake" id="contain">
@@ -86,15 +86,15 @@
             </div>
 
             <div class="calcbtn">
-                <button id="go" onclick="wakeUp()" >Calculate times <span id="what"></span>&#187;</button>
+                <button id="go">Calculate times <span id="what"></span>&#187;</button>
                 <hr>
                 <p>Find out when to wake up if you go to bed now:</p>
-                <button id="sleepnow" onclick="sleepNow()">I want to sleep now.</button>
+                <button id="sleepnow">I want to sleep now.</button>
             </div>
         </div>
 
 
-            <div class="show">
+            <div id="results" class="show">
                 <p class="disclaimer">From most to least number of sleep cycles, here are your best times:</p>
                 <div class="results">
                     <div class="high time-slot" id="6"></div>
@@ -120,36 +120,6 @@
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-      <script>
-
-        $('#go').click(function() {
-          var hourInput = parseInt($('#hourInput').val());
-          var minInput = parseInt($('#minInput').val());
-          if ( hourInput <= 0 || hourInput > 12 || minInput < 0 || minInput > 59 || isNaN(minInput) || isNaN(hourInput) ) {
-            $('#alert').fadeIn('fast');
-          } 
-          else {
-            $('#contain').fadeOut('slow', function(){
-              $('.show').fadeIn('fast');
-              $('#alert').hide();
-            });
-          }
-        });
-
-        $('#sleepnow').click(function() {
-          $('#contain').fadeOut('slow', function() {
-            $('.show').fadeIn('fast');
-          });
-        });
-
-        $('#back').click(function() {
-          $('.show').fadeOut('slow', function(){
-            $('#contain').fadeIn('fast');
-          });
-        });
-      </script> 
-
-
-    <script src="scripts/main.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

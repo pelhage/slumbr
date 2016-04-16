@@ -1,15 +1,10 @@
-(function($, window) {
+(function($, window, undefined) {
 
   window.Slumbr = (function() {
-
     // This is the length of a sleep cycle, expressed in milliseconds
     //var cycle = 90 * 60000;
-
-
     var Clock = {
       dateTime: new Date(),
-      hour: null,
-      minutes: null,
       clockType: '12hr',
       period: null,
       setToWake: true,
@@ -54,26 +49,27 @@
         Clock.dateTime = new Date();
         View.clearTimeSlot();
         Clock.listOfTimes = this.calcSleepTimes();
+        View.render();
       },
       // If user sets a time to sleep/wake up
       wakeUp: function() {
         //Retrieve times from person
-        Clock.hour = parseInt($('#hourInput').val(), 10);
-        Clock.minutes = parseInt($('#minInput').val(), 10);
+        var hour = parseInt($('#hourInput').val(), 10);
+        var mins = parseInt($('#minInput').val(), 10);
 
-        if (!Clock.validInputs(Clock.hour, Clock.minutes)) {
+        if (!Clock.validInputs(hour, mins)) {
           return false;
         }
         // If it is PM, then make sure to add 12 to hourInput
         if (!$('#am-pm').is(':checked')) {
-          Clock.hour += 12;
-          Clock.period = 'pm';
+          hour += 12;
+          period = 'pm';
         }
         // Create a date object based on the inputs
-        Clock.dateTime = new Date(0, 0, 0, Clock.hour, Clock.minutes);
+        Clock.dateTime = new Date(0, 0, 0, hour, mins);
         Clock.setToWake = View.sleepWake.checked;
         this.generateTimes();
-        View.pushToDOM();
+        View.render();
       },
       generateTimes: function() {
         if (Clock.setToWake) {
@@ -102,37 +98,81 @@
       },
     };
 
-
     var View = {
+      clockInterface: $.getElementById('contain'),
+      clockResults: $.getElementById('results'),
+      sleepWake: $.getElementById('sleep-wake'),
+      goBtn: $.getElementById('go'),
+      sleepNowBtn: $.getElementById('sleepnow'),
+      goBackBtn: $.getElementById('back'),
+      /**
+       * Initializes the View and adds event listeners
+       */
       initialize: function() {
-        this.clearTimeSlot();
-        $.getElementById('go').addEventListener('click', function() {
-
+        this.goBtn.addEventListener('click', function() {
           Controller.wakeUp();
-        });
-        $.getElementById('sleepnow').addEventListener('click', function() {
+          this.fadeOut(this.clockInterface);
+        }.bind(this));
+
+        this.sleepNowBtn.addEventListener('click', function() {
           Controller.sleepNow();
-        });
+          this.fadeOut(this.clockInterface);
+        }.bind(this));
+
+        this.goBackBtn.addEventListener('click', function() {
+          this.fadeOut(this.clockResults);
+          this.fadeIn(this.clockInterface);
+        }.bind(this));
       },
-      sleepWake: function() {
-        $.getElementById('sleep-wake')
-      },
-      // Takes date object, makes conversions, then adds to DOM
-      pushToDOM: function() {
+      /**
+       * Renders the list of dates in their appropriate views
+       */
+      render: function() {
         Clock.listOfTimes.forEach(function(time, i) {
-          var dd = setAM_PM(time.getHours());
-          var h = convertHour(time.getHours());
-          var m = convertMin(time.getMinutes());
-          $.getElementById(i).html = h + ":" + m + " " + dd;
+          if (Clock.clockType === '12hr') {
+            var dd = Clock.setAM_PM(time.getHours());
+            var h = Clock.convertHour(time.getHours());
+            var m = Clock.convertMin(time.getMinutes());
+          } else {
+            var dd = '';
+            var h = time.getHours();
+            var m = time.getMinutes();
+          }
+          console.log(time, i);
+          $.getElementById(i + 2).innerHTML = h + ":" + m + " " + dd;
         });
       },
+      /** Fade out an element **/
+      fadeOut: function(el){
+        el.style.opacity = 1;
+        (function fade() {
+          if ((el.style.opacity -= .1) < 0) {
+            el.style.display = "none";
+          } else {
+            requestAnimationFrame(fade);
+          }
+        })();
+      },
+      /** Fade In an Element **/
+      fadeIn: function(el, display){
+        el.style.opacity = 0;
+        el.style.display = display || "block";
+        (function fade() {
+          var val = parseFloat(el.style.opacity);
+          if (!((val += .1) > 1)) {
+            el.style.opacity = val;
+            requestAnimationFrame(fade);
+          }
+        })();
+      },
+      /** Delete the user inputs in the clock interface **/
       clearTimeSlot: function() {
         $.getElementsByClassName('time-slot')[0].html = '';
       },
     };
 
-    // Clock.initialize();
-    // View.initialize();
+    Clock.initialize();
+    View.initialize();
   
     return {
       convertHour: Clock.convertHour,

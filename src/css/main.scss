@@ -172,10 +172,10 @@ hr {
 
 body {
     color: #fff;
-    background-image: url(/images/stardust.png), -webkit-linear-gradient(#0B1F42, #0E2958, #294363);
-    background-image: url(/images/stardust.png), -o-linear-gradient(#0B1F42, #0E2958, #294363);
-    background-image: url(/images/stardust.png), -moz-linear-gradient(#0B1F42, #0E2958, #294363);
-    background-image: url(/images/stardust.png), linear-gradient(#0B1F42, #0E2958, #294363);
+    background-image: url('../img/stardust.png'), -webkit-linear-gradient(#0B1F42, #0E2958, #294363);
+    background-image: url('../img/stardust.png'), -o-linear-gradient(#0B1F42, #0E2958, #294363);
+    background-image: url('../img/stardust.png'), -moz-linear-gradient(#0B1F42, #0E2958, #294363);
+    background-image: url('../img/stardust.png'), linear-gradient(#0B1F42, #0E2958, #294363);
     background-attachment: fixed;
 }
 
