@@ -4,7 +4,7 @@ var sass = require('gulp-sass');
 var webpack = require('gulp-webpack');
 
 gulp.task('webpack', function() {
-  return gulp.src('src/js/main2.js')
+  return gulp.src('src/js/main.js')
     .pipe(webpack({
         watch: true,
         output: {
@@ -33,7 +33,12 @@ gulp.task('sass:watch', function () {
   gulp.watch('./src/css/**/*.scss', ['sass']);
 });
 
+gulp.task('js:watch', function () {
+  gulp.watch('./src/js/**/*.js', ['webpack']);
+});
+
 gulp.task('build', ['html', 'sass', 'img']);
+
 
 // gulp.task('minify', function() {
 //   gulp.src('src/js/*.js')
