@@ -52,12 +52,12 @@
         View.render();
       },
       /**
-       * If user sets a time to sleep/wake up
+       * If user sets a time to sleep/wake up 
        */
       wakeUp: function() {
         // Retrieve times from person
-        var hour = parseInt($('#hourInput').val(), 10);
-        var mins = parseInt($('#minInput').val(), 10);
+        var hour = parseInt($.getElementById('hourInput').value, 10);
+        var mins = parseInt($.getElementById('minInput').value, 10);
         // Validate Inputs
         if (!Clock.validInputs(hour, mins)) {
           return false;
@@ -126,7 +126,6 @@
        * Initializes the View and adds event listeners
        */
       initialize: function() {
-        console.log('UPDATED');
         this.goBtn.addEventListener('click', function() {
           Controller.wakeUp();
           this.fadeOut(this.clockInterface, function() {
