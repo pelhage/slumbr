@@ -16,7 +16,6 @@
     var Clock = {
       dateTime: new Date(),
       isMilitary: (localStorage.getItem('military') === 'true') || false,
-      period: null,
       setToWake: true,
       listOfTimes: [],
       // Takes the date object's hour, and converts to 12 hour time
@@ -39,10 +38,11 @@
         return (h < 24 && h >= 12) ? 'PM' : 'AM';
       },
       // Validate inputs, break out of function if invalid
-      validInputs: function(hrInput, minInput) {
-        if ( (isNaN(hrInput) || isNaN(minInput) ) ||
-          (!this.isMilitary && (hrInput > 12 || hrInput <= 0)) || 
-          (minInput < 0 || minInput > 59) || hrInput < 0) {
+      validInputs: function(hrInput, minInput, isMilitary) {
+        if ( (isNaN(hrInput) || isNaN(minInput) ) || // Invalid Times
+          (isMilitary && (hrInput > 12 || hrInput <= 0)) ||  // Invalid 12hr
+          (isMilitary && (hrInput > 23 || hrInput < 0)) || // Invalid 24hr
+          (minInput < 0 || minInput > 59) || hrInput < 0) { // Invalid Mins
           return false;
         } else {
           return true;
@@ -69,8 +69,11 @@
         var hour = parseInt($('#hourInput').value, 10);
         var mins = parseInt($('#minInput').value, 10);
         // Validate Inputs
-        if (!Clock.validInputs(hour, mins)) {
+        if (!Clock.validInputs(hour, mins, Clock.isMilitary)) {
+          View.showError();
           return false;
+        } else if (View.errorVisible) {
+          View.hideError();
         }
         // If 12 hour clock make sure to adjust for PM
         if (!Clock.isMilitary && View.amPmBtn.checked) {
@@ -81,6 +84,7 @@
         Clock.setToWake = View.sleepWake.checked;
         this.generateTimes();
         View.render();
+        return true;
       },
       /**
        * Create list of times to sleep/wake up 
@@ -132,6 +136,8 @@
       sleepNowBtn: $('#sleepnow'),
       goBackBtn: $('#back'),
       amPmBtn: $('#switch__am-pm'),
+      errorMsg: $('#alert'),
+      errorVisible: false,
       /**
        * Initializes the View and adds event listeners
        */
@@ -139,10 +145,11 @@
         this.toggleAmPm();
 
         this.goBtn.addEventListener('click', function() {
-          Controller.wakeUp();
-          this.fadeOut(this.clockInterface, function() {
-            this.fadeIn(this.clockResults);
-          }.bind(this));
+          if (Controller.wakeUp()) {
+            this.fadeOut(this.clockInterface, function() {
+              this.fadeIn(this.clockResults);
+            }.bind(this));
+          }
         }.bind(this));
 
         this.sleepNowBtn.addEventListener('click', function() {
@@ -165,6 +172,14 @@
           View.fadeIn(View.amPmBtn, 'inline-block');
         }
       },
+      showError: function() {
+        this.errorVisible = true;
+        this.fadeIn(this.errorMsg);
+      },
+      hideError: function() {
+        this.errorVisible = false;
+        this.fadeOut(this.errorMsg);
+      },
       /**
        * Renders the list of dates in their appropriate views
        */
@@ -173,13 +188,11 @@
           if (!Clock.isMilitary) {
             var dd = Clock.setAM_PM(time.getHours());
             var h = Clock.convertHour(time.getHours());
-            var m = Clock.convertMin(time.getMinutes());
           } else {
             var dd = '';
             var h = time.getHours();
-            var m = time.getMinutes();
           }
-          //console.log(time, i);
+          var m = Clock.convertMin(time.getMinutes());
           $('#'+i).innerHTML = h + ":" + m + " " + dd;
         });
       },
@@ -222,7 +235,10 @@
         $('.time-slot')[0].html = '';
       },
     };
-
+    /**
+     * User can choose between 12 hour and
+     * 24 hour time presentations
+     */
     var Settings = {
       renderSettings: function() {
         Array.prototype.forEach.call($('#clock-type').children, function(el){
@@ -243,6 +259,7 @@
               localStorage.setItem('military', Clock.isMilitary);
               View.toggleAmPm();
               this.renderSettings();
+              View.render();
             }
           }
         }.bind(this));
