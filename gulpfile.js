@@ -37,6 +37,12 @@ gulp.task('js:watch', function () {
   gulp.watch('./src/js/**/*.js', ['webpack']);
 });
 
+gulp.task('watch', function() {
+  gulp.watch('./src/css/**/*.scss', ['sass']);
+  gulp.watch('./src/js/**/*.js', ['webpack']);
+  gulp.watch('./src/**/*.html', ['html']);
+});
+
 gulp.task('build', ['html', 'sass', 'img']);
 
 
