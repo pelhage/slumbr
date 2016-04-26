@@ -85,7 +85,27 @@ hr {
 .header {
     margin-top: 15px;
     margin-left: 10px;
-    width: 150px;
+    overflow: auto;
+    // width: 150px;
+    h1 {
+        float: left;
+    }
+    #clock-type {
+        float: right;
+        font-size: 16px;
+        span {
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .clock-type__active {
+            cursor: default;
+            text-decoration: underline;
+        }
+        .clock-type__inactive {
+            opacity: 0.4;
+            font-weight: 300;
+        }
+    }
     a {
         text-decoration: none;
         color: white;

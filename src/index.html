@@ -9,7 +9,7 @@
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="css/main.css">
 
-    <script>
+<!--     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -17,14 +17,14 @@
             ga('create', 'UA-52478120-1', 'auto');
             ga('send', 'pageview');
     </script>
-  </head>
-  <body>
+ -->  </head>
+  <body style="display:none">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
 
-        <div id="fb-root"></div>
+<!--         <div id="fb-root"></div>
         <script type="text/javascript">
             (function(d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -42,10 +42,13 @@
                     js.src="https://platform.twitter.com/widgets.js";
                     fjs.parentNode.insertBefore(js,fjs);}}
                     (document,"script","twitter-wjs");
-        </script>
+        </script> -->
 
         <div class="header">
             <h1><a href="/">slumbr.in <span><img src="img/logo.png"></span></a></h1>
+            <div id="clock-type">
+                <span class="clock-type" data-military="false">12-hour</span> | <span class="clock-type" data-military="true">24-hour</span>
+            </div>
         </div>
       
         <div class="sleeporwake" id="contain">
@@ -76,7 +79,7 @@
                     </form>
                 </div>
 
-                <div class="switch am-pm">
+                <div id="switch__am-pm" class="switch am-pm">
                     <input type="checkbox" name="am-pm" class="switch__checkbox am-pm" id="am-pm" checked>
                     <label class="switch__label am-pm" for="am-pm">
                         <div class="switch__inner am-pm"></div>
@@ -112,10 +115,10 @@
 
         
         <footer>
-            <a class="twitter-share-button" href="https://twitter.com/share" data-text="Slumbr.in counts sleep cycles to give you the best times to sleep or wake up!" data-related="jasoncosta" data-lang="en" data-size="large" data-count="none">Tweet</a>
+<!--             <a class="twitter-share-button" href="https://twitter.com/share" data-text="Slumbr.in counts sleep cycles to give you the best times to sleep or wake up!" data-related="jasoncosta" data-lang="en" data-size="large" data-count="none">Tweet</a>
             
             <div class="fb-like" data-href="http://patrickelhage.com/apps/Test.html" data-width="76" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></div>
-        </footer>
+ -->        </footer>
 
     <script src="js/app.js"></script>
 </body>

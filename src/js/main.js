@@ -1,11 +1,21 @@
-(function($, window, undefined) {
+(function(document, window, undefined) {
 
+  /* Micro Library for DOM selection */
+  window.$ = function(el) {
+    var d = {
+      '#': 'getElementById',
+      '.': 'getElementsByClassName'
+    }[el[0]];
+    return document[d](el.slice(1));
+  };
+
+  /* Slumbr.in - Patrick El-Hage */
   window.Slumbr = (function() {
     // This is the length of a sleep cycle, expressed in milliseconds
     //var cycle = 90 * 60000;
     var Clock = {
       dateTime: new Date(),
-      isMilitary: false,
+      isMilitary: (localStorage.getItem('military') === 'true') || false,
       period: null,
       setToWake: true,
       listOfTimes: [],
@@ -56,8 +66,8 @@
        */
       wakeUp: function() {
         // Retrieve times from person
-        var hour = parseInt($.getElementById('hourInput').value, 10);
-        var mins = parseInt($.getElementById('minInput').value, 10);
+        var hour = parseInt($('#hourInput').value, 10);
+        var mins = parseInt($('#minInput').value, 10);
         // Validate Inputs
         if (!Clock.validInputs(hour, mins)) {
           return false;
@@ -115,17 +125,19 @@
       /**
        * UI elements
        */
-      clockInterface: $.getElementById('contain'),
-      clockResults: $.getElementById('results'),
-      sleepWake: $.getElementById('sleep-wake'),
-      goBtn: $.getElementById('go'),
-      sleepNowBtn: $.getElementById('sleepnow'),
-      goBackBtn: $.getElementById('back'),
-      amPmBtn: $.getElementById('am-pm'),
+      clockInterface: $('#contain'),
+      clockResults: $('#results'),
+      sleepWake: $('#sleep-wake'),
+      goBtn: $('#go'),
+      sleepNowBtn: $('#sleepnow'),
+      goBackBtn: $('#back'),
+      amPmBtn: $('#switch__am-pm'),
       /**
        * Initializes the View and adds event listeners
        */
       initialize: function() {
+        this.toggleAmPm();
+
         this.goBtn.addEventListener('click', function() {
           Controller.wakeUp();
           this.fadeOut(this.clockInterface, function() {
@@ -146,17 +158,11 @@
           }.bind(this));
         }.bind(this));
       },
-      // a: function() {
-      //   if (Clock.isMilitary) {
-      //     View.toggleAmPm();
-      //   }
-      // },
       toggleAmPm: function() {
-        var visibility = View.amPmBtn.style.visibility;
         if (Clock.isMilitary) {
-          visibility = 'hidden';
+          View.fadeOut(View.amPmBtn);
         } else {
-          visibility = 'visibility';
+          View.fadeIn(View.amPmBtn, 'inline-block');
         }
       },
       /**
@@ -173,8 +179,8 @@
             var h = time.getHours();
             var m = time.getMinutes();
           }
-          console.log(time, i);
-          $.getElementById(i).innerHTML = h + ":" + m + " " + dd;
+          //console.log(time, i);
+          $('#'+i).innerHTML = h + ":" + m + " " + dd;
         });
       },
       /**
@@ -183,10 +189,9 @@
        * @callback cb - callback after fade
        **/
       fadeOut: function(el, cb){
-        console.log('Fading out ', el);
         el.style.opacity = 1;
         (function fade() {
-          if ((el.style.opacity -= .05) < 0) {
+          if ((el.style.opacity -= .1) < 0) {
             el.style.display = "none";
           } else {
             requestAnimationFrame(fade);
@@ -200,12 +205,11 @@
        * @param {string} display - display type of el
        **/
       fadeIn: function(el, display){
-        console.log('Fading in ', el);
         el.style.opacity = 0;
         el.style.display = display || "block";
         (function fade() {
           var val = parseFloat(el.style.opacity);
-          if (!((val += .05) > 1)) {
+          if (!((val += .1) > 1)) {
             el.style.opacity = val;
             requestAnimationFrame(fade);
           }
@@ -215,19 +219,49 @@
        * Delete the user inputs in the clock interface
        **/
       clearTimeSlot: function() {
-        $.getElementsByClassName('time-slot')[0].html = '';
+        $('.time-slot')[0].html = '';
       },
     };
 
+    var Settings = {
+      renderSettings: function() {
+        Array.prototype.forEach.call($('#clock-type').children, function(el){
+          if (el.getAttribute('data-military') == String(Clock.isMilitary)) {
+            el.className = 'clock-type__active';
+          } else {
+            el.className = 'clock-type__inactive';
+          }
+        });
+      },
+      initialize: function() {
+        this.renderSettings();
+
+        $('#clock-type').addEventListener('click', function(e) {
+          if (e.target && e.target.nodeName == 'SPAN') {
+            if ( (e.target.getAttribute('data-military') !== String(Clock.isMilitary)) ) {
+              Clock.isMilitary = !Clock.isMilitary;
+              localStorage.setItem('military', Clock.isMilitary);
+              View.toggleAmPm();
+              this.renderSettings();
+            }
+          }
+        }.bind(this));
+      },
+    };
+    
     View.initialize();
-  
+    Settings.initialize();
+    setTimeout(function(){View.fadeIn(document.body)}, 500);
+
     return {
       convertHour: Clock.convertHour,
       convertMin: Clock.convertMin,
       setAM_PM: Clock.setAM_PM,
       validInputs: Clock.validInputs,
       calcWakeTimes: Controller.calcWakeTimes,
-      calcSleepTimes: Controller.calcSleepTimes
+      calcSleepTimes: Controller.calcSleepTimes,
+      viewInit: View.initialize,
+      settingsInit: Settings.initialize
     };
   })();
 
