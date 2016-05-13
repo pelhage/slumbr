@@ -1,0 +1,27 @@
+{
+  "name": "slumbr",
+  "version": "1.0.0",
+  "description": "Sleep cycle web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pelhage/slumbr.git"
+  },
+  "author": "Patrick El-Hage",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pelhage/slumbr/issues"
+  },
+  "homepage": "https://github.com/pelhage/slumbr#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-minify": "0.0.7",
+    "gulp-sass": "^2.2.0",
+    "gulp-webpack": "^1.5.0",
+    "mocha": "^2.4.5"
+  }
+}
